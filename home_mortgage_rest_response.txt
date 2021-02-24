@@ -1,0 +1,23 @@
+{
+   "fetchDateTime":"2021-02-23T18:33:40.146Z",
+   "resultCount":4,
+   "data":[
+      {
+         "pyStatusWork":"In Build",
+         "total":"249"
+      },
+      {
+         "pyStatusWork":"New",
+         "total":"359"
+      },
+      {
+         "pyStatusWork":"Open",
+         "total":"39"
+      },
+      {
+         "pyStatusWork":"Resolved-Cancelled",
+         "total":"133"
+      }
+   ],
+   "hasMoreResults":false
+}
