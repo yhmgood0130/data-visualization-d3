@@ -5,12 +5,12 @@ app.engine('.html', require('ejs').__express);
 app.set('views', __dirname);
 app.set('view engine', 'html');
 
-// const vehicleData = require('./vehicle_rest_response.txt');
-// const homeMortgageData = JSON.parse('./home_mortgage_rest_response.txt');
-
 const fs = require('fs');
-const FILE_NAME = 'home_mortgage_rest_response.txt';
-let homeMortgageData = mapEvents(getJSONFileData(FILE_NAME));
+const HOME_MORTGAGE_FILE_NAME = 'home_mortgage_rest_response.txt';
+const VEHICLE_TYPE_FILE_NAME = 'vehicle_rest_response.txt';
+
+let homeMortgageData = mapEvents(getJSONFileData(HOME_MORTGAGE_FILE_NAME));
+let vehicleTypeData = mapEvents(getJSONFileData(VEHICLE_TYPE_FILE_NAME));
 
 function getJSONFileData(filename) {
   return fs
@@ -21,13 +21,11 @@ function mapEvents(events) {
   return JSON.parse(events);
 }
 
-
-console.log(homeMortgageData["data"] + "DDP");
-
 app.locals.columnBarChartHelper = require ('./column_bar_chart_helper');
+app.locals.pieChartHelper = require('./pie_chart_helper');
 
 app.get('/', function(req,res) {
-    res.render('index', { homeMortgageData: homeMortgageData })
+    res.render('index', { homeMortgageData: homeMortgageData, vehicleTypeData: vehicleTypeData })
 });
 
 app.listen(3000);
