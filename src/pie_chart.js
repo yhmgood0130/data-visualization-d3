@@ -18,7 +18,7 @@ class PieChart {
       top: 180,
       right: 100,
       bottom: 50,
-      left: 300
+      left: 250
     };
   }
 
@@ -33,7 +33,7 @@ class PieChart {
     // Selecting SVG using d3.select() 
     var svg = container.append("svg")
         .attr('class', 'svg-chart')
-        .attr('width', width + 150)
+        .attr('width', width)
         .attr('height', height);
 
     data.map((vehicle) => {
@@ -93,7 +93,7 @@ class PieChart {
         _d[1] *= 1.7;	//multiply by a constant factor
         return "translate(" + _d + ")";
       })
-      .attr("dy", ".50em")
+      .attr("dy", ".20em")
       .style("text-anchor", "middle")
       .text(function(d) {        
         return parseFloat(d.data.total / sum).toFixed(2) * 100  + '%';

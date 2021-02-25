@@ -21,8 +21,11 @@ function mapEvents(events) {
   return JSON.parse(events);
 }
 
-app.locals.columnBarChartHelper = require ('./column_bar_chart_helper');
-app.locals.pieChartHelper = require('./pie_chart_helper');
+app.locals.columnBarChartHelper = require ('./src/helper/column_bar_chart_helper');
+app.locals.pieChartHelper = require('./src/helper/pie_chart_helper');
+
+app.use(express.static(__dirname + '/public'));
+
 
 app.get('/', function(req,res) {
     res.render('index', { homeMortgageData: homeMortgageData, vehicleTypeData: vehicleTypeData })

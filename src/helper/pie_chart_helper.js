@@ -1,12 +1,12 @@
 const jsdom = require("jsdom");
 const d3 = Object.assign({}, require('d3-selection'));
-const columnBarChart = require('./column_bar_chart');
+const pieChart = require('../pie_chart');
 
 const { JSDOM } = jsdom;
 const document = new JSDOM().window.document;
 
-function getColumnBarChart(params) {
-  const chart = new columnBarChart(params);
+function getPieChart(params) {
+  const chart = new pieChart(params);
   const { containerId } = params;
 
   d3.select(document.body)
@@ -21,5 +21,5 @@ function getColumnBarChart(params) {
 }
 
 module.exports = {
-  getColumnBarChart
+  getPieChart
 };
